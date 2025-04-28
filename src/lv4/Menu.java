@@ -51,9 +51,11 @@ public class Menu {
             if (option == 0) {
                 break;
             } else if (option >= 1 && option <= menuItems.size()) {
-                System.out.println(menuItems.get(option - 1).getName() + ", " + menuItems.get(option - 1).getPrice() + ", " + menuItems.get(option - 1).getInfo());
+                System.out.println("선택한 메뉴: " + menuItems.get(option - 1).getName() + " | " + menuItems.get(option - 1).getPrice() + " | " + menuItems.get(option - 1).getInfo());
+                break;
             } else {
                 System.out.println("메뉴에 없는 번호입니다.");
+                break;
             }
         }
     }
