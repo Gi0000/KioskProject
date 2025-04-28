@@ -12,20 +12,33 @@ public class Kiosk {
         this.menus = menus;
     }
 
-    int start() {
-        Scanner sc = new Scanner(System.in);
+    void start() {
+        while(true) {
+            Scanner sc = new Scanner(System.in);
 
-        System.out.println("[ MAIN MENU ]");
-        for (int i = 0; i < menus.size(); i++) {
-            System.out.println((i + 1) + ". " + menus.get(i).getCategory());
+            System.out.println("[ MAIN MENU ]");
+            for (int i = 0; i < menus.size(); i++) {
+                System.out.println((i + 1) + ". " + menus.get(i).getCategory());
+            }
+            System.out.println("0. 종료");
+
+            int option = sc.nextInt();
+
+            if (option < 0 || option > menus.size()) {
+                System.out.println("메뉴에 없는 번호입니다.");
+                continue;
+            }
+
+            if (option == 0) {
+                System.out.println("프로그램을 종료합니다.");
+                break;
+            }
+
+            // showMenuItems function
+            Menu selectMenu = menus.get(option - 1);
+            System.out.println("[ " + selectMenu.getCategory().toUpperCase() + " MENU ]");
+            selectMenu.showMenuItems();
+
         }
-        System.out.println("0. 종료");
-
-        int option = sc.nextInt();
-
-        if (option < 0 || option > menus.size())
-            option = -1;
-
-        return option;
     }
 }

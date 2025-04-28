@@ -33,23 +33,6 @@ public class Main {
         Kiosk kiosk = new Kiosk(menus);
 
         // Kiosk 내 시작하는 함수 호출
-        while (true) {
-            int option = kiosk.start();
-
-            if (option == -1) {
-                System.out.println("메뉴에 없는 번호입니다.");
-                continue;
-            }
-            if (option == 0) {
-                System.out.println("프로그램을 종료합니다.");
-                break;
-            }
-
-
-
-
-
-
-        }
+        kiosk.start();
     }
 }
