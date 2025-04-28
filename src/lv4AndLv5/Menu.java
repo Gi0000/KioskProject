@@ -1,4 +1,4 @@
-package lv4;
+package lv4AndLv5;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +25,6 @@ public class Menu {
     }
     void addMenuItem(MenuItem item) {
         menuItems.add(item);
-    }
-
-    // List를 리턴하는 함수
-    List<MenuItem> returnMenuItemList (int option, List<Menu> menus) {
-        return (List<MenuItem>) menus.get(option - 1);
     }
 
     // List에 들어있는 MenuItem을 순차적으로 보여주는 함수
