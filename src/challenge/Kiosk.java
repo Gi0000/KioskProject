@@ -74,18 +74,19 @@ public class Kiosk {
                     System.out.println("프로그램을 종료합니다.");
                     break;
                 }
-                if (option < 0 || option > menus.size() + 2) {
+                else if (option < 0 || option > menus.size() + 1) {
                     System.out.println("메뉴에 없는 번호입니다.");
-                    continue;
                 }
-                if (option == menus.size() || option == menus.size() + 1) {
+                else if (option == menus.size() || option == menus.size() + 1) {
                     System.out.println("장바구니가 비어있습니다.");
                 }
+                else {
+                    // showMenuItems function
+                    Menu selectMenu = menus.get(option - 1);
+                    System.out.println("[ " + selectMenu.getCategory().toUpperCase() + " MENU ]");
+                    selectMenu.showMenuItems(shoppingCart);
+                }
 
-                // showMenuItems function
-                Menu selectMenu = menus.get(option - 1);
-                System.out.println("[ " + selectMenu.getCategory().toUpperCase() + " MENU ]");
-                selectMenu.showMenuItems(shoppingCart);
             }
 
         }
