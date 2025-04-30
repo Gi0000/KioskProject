@@ -31,7 +31,8 @@ public class Main {
 
         // Kiosk 객체 생성
         Kiosk kiosk = new Kiosk(menus);
-        ShoppingCart shoppingCart = new ShoppingCart();
+        UserType userType = UserType.GENERAL;
+        ShoppingCart shoppingCart = new ShoppingCart(userType);
 
         // Kiosk 내 시작하는 함수 호출
         kiosk.start(shoppingCart);

@@ -2,17 +2,21 @@ package challenge;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ShoppingCart {
 
 // 속성
     private List<MenuItem> ShoppingCartList = new ArrayList<>();
+    private UserType userType;
     private String name;
     private int amount;
     private int price;
 
 // 생성자
-    ShoppingCart() {}
+    ShoppingCart(UserType userType) {
+        this.userType = userType;
+    }
 
     public List<MenuItem> getShoppingCartList() {
         return ShoppingCartList;
@@ -57,6 +61,14 @@ public class ShoppingCart {
 
     // 주문
     void order() {
-        System.out.println("주문이 완료되었습니다. 금액은 W " + totalPrice() + "입니다.");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("할인 정보를 입력해주세요.");
+        System.out.println("1. 국가유공자 : 10%");
+        System.out.println("2. 군인 : 5%");
+        System.out.println("3. 학생 : 3%");
+        System.out.println("4. 일반 : 0%");
+        int option = sc.nextInt();
+
+        System.out.println("주문이 완료되었습니다. 금액은 W " + userType.discountCal(option, totalPrice()) + "입니다.");
     }
 }
